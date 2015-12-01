@@ -763,6 +763,23 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   script.UnmountAll()
 
+
+  # Install SuperSU.
+
+  script.Print("Extracting SuperSU...");
+  script.AppendExtra('package_extract_dir("system/supersu", "/tmp/supersu");')
+  script.AppendExtra('run_program("/sbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/update-binary", "-d", "/tmp/supersu");')
+  script.Print("Installing SuperSU...");
+  script.AppendExtra('run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "null", "1", "/tmp/supersu/supersu.zip");')
+
+  script.Print("Cleaning up...");
+  script.Mount("/system")
+  script.AppendExtra('delete_recursive("/tmp/supersu");')
+  script.AppendExtra('delete_recursive("/system/supersu");')
+  script.Unmount("/system")
+
+  script.Print("Installation complete!");
+
   if OPTIONS.wipe_user_data:
     script.ShowProgress(0.1, 10)
     script.FormatPartition("/data")
