@@ -22,6 +22,7 @@
 
 PRODUCT_PACKAGES += \
     BasicDreams \
+    Browser \
     BlockedNumberProvider \
     BookmarkProvider \
     Calendar \
