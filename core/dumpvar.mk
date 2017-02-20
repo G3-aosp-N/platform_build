@@ -3,7 +3,6 @@
 print_build_config_vars := \
   PLATFORM_VERSION_CODENAME \
   PLATFORM_VERSION \
-  EXTENDED_MOD_VERSION \
   TARGET_PRODUCT \
   TARGET_BUILD_VARIANT \
   TARGET_ARCH \
@@ -122,7 +121,6 @@ HOST_OS_EXTRA:=$(shell python -c "import platform; print(platform.platform())")
 $(info ============================================)
 $(info   PLATFORM_VERSION_CODENAME=$(PLATFORM_VERSION_CODENAME))
 $(info   PLATFORM_VERSION=$(PLATFORM_VERSION))
-$(info   EXTENDED_MOD_VERSION=$(EXTENDED_MOD_VERSION))
 $(info   TARGET_PRODUCT=$(TARGET_PRODUCT))
 $(info   TARGET_BUILD_VARIANT=$(TARGET_BUILD_VARIANT))
 $(info   TARGET_BUILD_TYPE=$(TARGET_BUILD_TYPE))
